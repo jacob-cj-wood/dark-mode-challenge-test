@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
 import "../styles/_app.scss";
 
 function App() {
+  const [mode, setMode] = useState("light");
+  console.log(mode);
   return (
-    <div className="app">
+    <div className={mode === "dark" ? "app dark-mode" : "app"}>
       <div className="level">
         <div>
           <h1 className="title">Dark Mode</h1>
         </div>
 
-        <button className="app__dark-mode-btn icon level-right">
+        <button
+          className="app__dark-mode-btn icon level-right"
+          onClick={() =>
+            mode === "light" ? setMode("dark") : setMode("light")
+          }
+        >
           <FontAwesomeIcon icon={faMoon} />
         </button>
       </div>
