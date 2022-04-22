@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoon } from "@fortawesome/free-solid-svg-icons";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import "../styles/_app.scss";
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
             mode === "light" ? setMode("dark") : setMode("light")
           }
         >
-          <FontAwesomeIcon icon={faMoon} />
+          <FontAwesomeIcon icon={mode === "light" ? faMoon : faSun} />
         </button>
       </div>
 
