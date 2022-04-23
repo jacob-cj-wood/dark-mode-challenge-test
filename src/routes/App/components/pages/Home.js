@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { DarkMode } from "../../../index";
 import "../../styles/_app.scss";
-import { NavLink } from "react-router-dom";
 
 const Home = () => {
+  const [mode] = useContext(DarkMode);
   return (
-    <div>
+    <div className={mode === "dark" ? "container dark-mode" : "container"}>
       <div className="column">
         <p>
           Lollipop powder powder. Cotton candy caramels chupa chups halvah

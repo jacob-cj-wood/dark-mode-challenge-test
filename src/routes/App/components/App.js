@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import "../styles/_app.scss";
+import { DarkMode } from "../../index";
 
 function Default() {
-  const [mode, setMode] = useState("light");
+  const [mode, setMode] = useContext(DarkMode);
+
   return (
     <div className={mode === "dark" ? "app dark-mode" : "app"}>
       <div className="level">
