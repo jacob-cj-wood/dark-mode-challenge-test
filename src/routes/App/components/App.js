@@ -5,8 +5,17 @@ import { Link } from "react-router-dom";
 import "../styles/_app.scss";
 import { DarkMode } from "../../index";
 
+function changeMode(mode, setMode) {
+  if (mode === "light") {
+    setMode("dark");
+    localStorage.setItem("screenMode", "dark");
+  } else {
+    setMode("light");
+    localStorage.setItem("screenMode", "light");
+  }
+}
+
 function Default() {
-  //TODO:: Implement dark mode as local storage
   const [mode, setMode] = useContext(DarkMode);
 
   return (
@@ -24,9 +33,7 @@ function Default() {
 
         <button
           className="app__dark-mode-btn icon level-right"
-          onClick={() =>
-            mode === "light" ? setMode("dark") : setMode("light")
-          }
+          onClick={() => changeMode(mode, setMode)}
         >
           <FontAwesomeIcon icon={mode === "light" ? faMoon : faSun} />
         </button>

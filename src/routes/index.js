@@ -5,8 +5,17 @@ import Home from "./App/components/pages/Home";
 import About from "./App/components/pages/About";
 const DarkMode = createContext();
 
+function getMode() {
+  const screenMode = localStorage.getItem("screenMode");
+  if (screenMode) {
+    return screenMode;
+  } else {
+    return "light";
+  }
+}
+
 function App() {
-  const [mode, setMode] = useState("dark");
+  const [mode, setMode] = useState(getMode());
   return (
     <Router>
       <DarkMode.Provider value={[mode, setMode]}>
