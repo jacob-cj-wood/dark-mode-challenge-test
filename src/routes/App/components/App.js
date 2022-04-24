@@ -6,6 +6,7 @@ import "../styles/_app.scss";
 import { DarkMode } from "../../index";
 
 function Default() {
+  //TODO:: Implement dark mode as local storage
   const [mode, setMode] = useContext(DarkMode);
 
   return (
